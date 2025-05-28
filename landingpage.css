@@ -1,0 +1,203 @@
+* {
+    box-sizing: border-box;
+    scroll-snap-type: y mandatory;
+    /* produces the scroll effect */
+}
+
+section {
+    height: 100vh;
+    /* height is equal to full browser size, so taking up the whole window */
+    scroll-snap-align: start;
+    /* the scroll will snap to the top of the page */
+    position: relative;
+
+    /* centering vertically: */
+    align-content: center
+}
+
+#SAMBA {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    gap: 0px 0px;
+    grid-auto-flow: row;
+    grid-template-areas:
+        "leftColumn rightColumn"
+        "leftColumn rightColumn";
+
+    color: white;
+    padding: 5rem;
+    /* Background done with help from https://stackoverflow.com/a/25816846 */
+    background-image:
+        linear-gradient(0.25turn, rgba(0, 0, 0, 1), rgba(0, 0, 0, 0.25), rgba(0, 0, 0, 0)),
+        url(SAMBAimage.png);
+    /* utilised so background image is scaled appropriately https://css-tricks.com/perfect-full-page-background-image/ */
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
+
+.leftColumn {
+    grid-area: leftColumn;
+}
+
+.rightColumn {
+    grid-area: rightColumn;
+}
+
+#SAMBAmate {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 0.7fr 1.6fr 0.7fr;
+    gap: 1.5rem;
+    grid-auto-flow: row;
+    grid-template-areas:
+        "header header"
+        "imageColumn descriptionColumn"
+        "footer footer";
+
+    padding: 5rem 10rem;
+    background-image:
+        linear-gradient(rgba(0, 0, 0, 0.82), rgba(0, 0, 0, 0.82)),
+        url(SAMBAmateImage.jpg);
+    /* utilised so background image is scaled appropriately https://css-tricks.com/perfect-full-page-background-image/ */
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
+
+header {
+    grid-area: header;
+    text-align: center;
+}
+
+footer {
+    grid-area: footer;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.imageColumn {
+    grid-area: imageColumn;
+    align-content: center;
+}
+
+.descriptionColumn {
+    grid-area: descriptionColumn;
+    align-content: center;
+    font-size: 2em;
+}
+
+img {
+    width: 100%;
+}
+
+
+h1 {
+    font-family: "Playfair Display SC", serif;
+    font-size: 10em;
+    color: white;
+}
+
+h2 {
+    font-family: "Caprasimo", sans-serif;
+    font-size: 3em;
+    color: white;
+}
+
+p {
+    font-family: 'Outfit', sans-serif;
+    font-size: 1em;
+    color: white;
+}
+
+#highlight {
+    color: #F9665E;
+    font-family: "Playfair Display", serif;
+}
+
+/* BUTTON */
+
+.button {
+    text-decoration: none;
+    /* removes the hyperlink underline from the button text */
+    margin: 10px;
+    font-family: "Outfit", sans-serif;
+    font-size: 20px;
+    color: white;
+    background-color: #F9665E;
+    padding: 10px;
+    border-radius: 30px;
+    border: none;
+    width: 20%;
+}
+
+.button:hover {
+    background-color: #F7A6A4;
+}
+
+.button.selected {
+    background-color: #FEC9C9;
+}
+
+/* CAROUSEL */
+
+/* .carousel {
+    display: flex;
+    overflow: hidden;
+    position: relative;
+    width: 100%;
+}
+
+.slides {
+    display: flex;
+    scroll-snap-type: x mandatory;
+    overflow: hidden; 
+    width: 100%;
+}
+
+.slide {
+    flex: 0 0 100%;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    scroll-snap-align: start;
+    width: 100%;
+}
+}
+
+input[type="radio"] {
+    display: none;
+}
+
+.prev, .next {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 2rem;
+    cursor: pointer;
+}
+
+.prev {
+    left: 10px;
+}
+
+.next {
+    right: 10px;
+}
+
+#slide1:checked ~ .slides .slide:nth-child(1),
+#slide2:checked ~ .slides .slide:nth-child(2) {
+    display: grid;
+}
+
+#slide1:checked ~ .slides {
+    transform: translateX(0%);
+}
+
+#slide2:checked ~ .slides {
+    transform: translateX(-100%);
+} */

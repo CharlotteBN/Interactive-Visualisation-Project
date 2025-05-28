@@ -1,0 +1,269 @@
+/* OVERALL */
+
+* {
+  box-sizing: border-box;
+  scroll-snap-type: y mandatory;
+  /* produces the scroll effect */
+  scroll-behavior: smooth;
+  /* so if scrolling with the arrow, there's a smooth transition */
+}
+
+section {
+  height: 100vh;
+  /* height is equal to full browser size, so taking up the whole window */
+  scroll-snap-align: start;
+  /* the scroll will snap to the top of the page */
+  position: relative;
+
+  /* Centering horizontally: */
+  margin: auto;
+  width: 70%;
+  display: block;
+  /* and vertically: */
+  align-content: center;
+}
+
+div {
+  /* Centering the slider, quiz and graphs */
+  text-align: center;
+  margin: auto;
+  width: 100%;
+  display: block;
+}
+
+h1 {
+  font-family: "Caprasimo", serif;
+  font-size: 64px;
+  color: #F9665E;
+}
+
+h2 {
+  font-family: "Caprasimo", serif;
+  font-size: 40px;
+  color: #F9665E;
+}
+
+p,
+li {
+  font-family: "Outfit", sans-serif;
+  font-size: 1.1rem;
+  color: #1D2E57;
+}
+
+.arrow {
+  font-size: 2.5rem;
+  text-align: center;
+  color: #F9665E;
+  padding: 2rem;
+  display: block;
+  text-decoration: none;
+}
+
+.arrow:hover {
+  color:#FEC9C9;
+}
+
+/* TOOLTIP */
+/* based on https://www.w3schools.com/css/css_tooltip.asp */
+
+.tooltip {
+  position: relative;
+  display: inline-block;
+  text-decoration: underline;
+}
+
+.tooltip .tooltiptext {
+  visibility: hidden;
+  width: 300px;
+  background-color: #F7A6A4;
+  color: #fff;
+  text-align: center;
+  border-radius: 6px;
+  padding: 15px 15px;
+  margin: 10px;
+
+  /* Position the tooltip */
+  position: absolute;
+  z-index: 1;
+
+  /* position above text */
+  bottom: 100%;
+  left: 50%;
+  margin-left: -150px; /* Use half of the width (120/2 = 60), to center the tooltip */
+}
+
+.tooltip:hover .tooltiptext {
+  visibility: visible;
+}
+
+.tooltip .tooltiptext::after {
+  content: " ";
+  position: absolute;
+  top: 100%; /* At the bottom of the tooltip */
+  left: 50%;
+  margin-left: -5px;
+  border-width: 5px;
+  border-style: solid;
+  border-color: #F7A6A4 transparent transparent transparent;
+}
+
+/* CONCLUSION */
+
+#conclusionCircles {
+  text-align: center;
+  /* ensures the circles are centered */
+}
+
+.circle {
+  /* making circles */
+  width: 200px;
+  height: 200px;
+  padding: 10px;
+  margin: 40px;
+  border-radius: 50%;
+  /* colors and font */
+  background-color: #FAF3EE;
+  font-family: "Caprasimo", serif;
+  /* aligning the circles and text - responsive too!*/
+  text-align: center;
+  align-content: center;
+  display: inline-block;
+  vertical-align: middle;
+}
+
+/* HIGHLIGHTS */
+
+.hotpink {
+  background-color: #F9665E;
+  padding: 3px;
+  border-radius: 10px;
+  color: white;
+}
+
+.lightpink {
+  background-color: #FEC9C9;
+  padding: 3px;
+  border-radius: 10px;
+}
+
+.pink {
+  background-color: #F7A6A4;
+  padding: 3px;
+  border-radius: 10px;
+}
+
+.beige {
+  background-color: #FAF3EE;
+  padding: 10px;
+  border-radius: 10px;
+}
+
+.blue {
+  background-color: #95B4CC;
+  padding: 3px;
+  border-radius: 10px;
+}
+
+.navy {
+  background-color: #1D2E57;
+  padding: 3px;
+  border-radius: 10px;
+  color: white;
+}
+
+/* SLIDER */
+/* edited from w3schools's range slider example: https://www.w3schools.com/howto/howto_js_rangeslider.asp */
+
+.slidercontainer {
+  width: 80%;
+}
+
+/* The slider itself */
+.slider {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 100%;
+  height: 40px;
+  background: linear-gradient(0.25turn, #95B4CC, #FAF3EE, #F7A6A4);
+  border-radius: 20px;
+
+  /* setup for the following mouse-over effect */
+  opacity: 0.7;
+  -webkit-transition: .2s;
+  transition: opacity .2s;
+}
+
+/* Mouse-over effect (transitions to full opacity) */
+.slider:hover {
+  opacity: 1;
+}
+
+/* The slider handle */
+.slider::-webkit-slider-thumb {
+  /* webkit to overwrite default of Chrome, Opera, Safari and Edge */
+  -webkit-appearance: none;
+  /* Override default look */
+  appearance: none;
+  width: 50px;
+  height: 50px;
+  /* I wanted the width/height to be larger than the slider itself, so the handle is reminescent of the sliders of physical sound mixers */
+  background: #F9665E;
+  /* handle colour */
+  cursor: pointer;
+  /* Cursor on hover, makes interactivity clearer */
+  border-radius: 50%;
+}
+
+.slider::-moz-range-thumb {
+  /* moz to overwrite default of Firefox */
+  width: 40px;
+  height: 40px;
+  background: #F9665E;
+  cursor: pointer;
+  border-radius: 50%;
+}
+
+/* SLIDER LABELS */
+
+#sliderlabel,
+#sliderlabeltwo {
+  position: relative;
+  width: 100%;
+  height: 30px;
+  margin-top: 5px;
+  height: 80px;
+  /* ensures label doesn't overlap slider */
+}
+
+.emoji {
+  font-size: 40px;
+}
+
+/* QUIZ */
+
+button,
+.button {
+  /* also styling the slider button */
+  font-family: "Outfit", sans-serif;
+  font-size: 20px;
+  background-color: #FAF3EE;
+  color: #1D2E57;
+  padding: 10px;
+  border-radius: 30px;
+  border: none;
+  margin: 10px;
+}
+
+button:hover {
+  background-color: #F7A6A4;
+}
+
+button.selected {
+  background-color: #F9665E;
+}
+
+#options {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
