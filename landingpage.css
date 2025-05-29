@@ -89,7 +89,6 @@ footer {
 .descriptionColumn {
     grid-area: descriptionColumn;
     align-content: center;
-    font-size: 2em;
 }
 
 img {
@@ -111,7 +110,7 @@ h2 {
 
 p {
     font-family: 'Outfit', sans-serif;
-    font-size: 1em;
+    font-size: 1.25em;
     color: white;
 }
 
@@ -127,13 +126,12 @@ p {
     /* removes the hyperlink underline from the button text */
     margin: 10px;
     font-family: "Outfit", sans-serif;
-    font-size: 20px;
+    font-size: 2rem;
     color: white;
     background-color: #F9665E;
     padding: 10px;
     border-radius: 30px;
     border: none;
-    width: 20%;
 }
 
 .button:hover {
