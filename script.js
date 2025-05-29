@@ -192,6 +192,7 @@ function makePlot1(data) {
                 family: "Outfit",
             },
             side: 'right', // moves the 1st y axis to the right side
+            range: [-1,3], // specified range to align the 0 PMV and 22 ideal air temperature
         },
         yaxis2: {
             title: {
@@ -209,6 +210,7 @@ function makePlot1(data) {
             side: 'left', // moves the 2nd y axis to the left
             // By default, the 1st y-axis is on the left. However, by default, it also is ordered underneath the second y-axis and its trace,
             // rendering the 1st y axis invisible. Hence, I manually changed which side the y-axis is on for consistency and visibility.
+            range: [20.3,27], // specified range to align the 0 PMV and 22 ideal air temperature
         },
         legend: {
             x: 1.15, // moving the legend so it won't overlap the graph
@@ -300,7 +302,7 @@ function makePlotCustom(data) {
 
         line: {
             color: "#F9665E",
-            width: 4, // thicker than the other lines so it'll stand out
+            width: 5, // thicker than the other lines so it'll stand out
         },
     }
 
@@ -335,6 +337,7 @@ function makePlotCustom(data) {
                 family: "Outfit",
             },
             side: 'right', // moves the 1st y axis to the right side
+            range: [-3, 3], // specified range to align the 0 PMV and 22 ideal air temperature
         },
         yaxis2: {
             title: {
@@ -353,7 +356,7 @@ function makePlotCustom(data) {
             // By default, the 1st y-axis is on the left. However, by default, it also is ordered underneath the second y-axis and its trace,
             // rendering the 1st y axis invisible. Hence, I manually changed which side the y-axis is on for consistency and visibility.
 
-            range: [21.5, 27.5], // without this, any negative custom_trace value overlaps with ideal_ta_trace
+            range: [16.5, 27.5], // without this, any negative custom_trace value overlaps with ideal_ta_trace
         },
         legend: {
             x: 1.15, // moving the legend so it won't overlap the graph

@@ -40,6 +40,9 @@ section {
 
 .leftColumn {
     grid-area: leftColumn;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 }
 
 .rightColumn {
@@ -93,6 +96,7 @@ footer {
 
 img {
     width: 100%;
+    padding: em;
 }
 
 
@@ -100,6 +104,7 @@ h1 {
     font-family: "Playfair Display SC", serif;
     font-size: 10em;
     color: white;
+    margin: 0;
 }
 
 h2 {
@@ -117,6 +122,12 @@ p {
 #highlight {
     color: #F9665E;
     font-family: "Playfair Display", serif;
+}
+
+#SAMBAmateDescription {
+    width: 70%;
+    margin: auto;
+    text-align: center;
 }
 
 /* BUTTON */
