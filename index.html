@@ -1,3 +1,5 @@
+<!-- NOTE: WHEN NAVIGATING THE WEBAPP, DO NOT START FROM THIS PAGE. START FROM THE LANDING PAGE i.e. landingpage.html -->
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -9,7 +11,7 @@
     <script src="https://cdn.plot.ly/plotly-3.0.1.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/d3@7"></script>
 
-    <title>Visualisation Project</title>
+    <title>SAMBAmate Demo</title>
 
     <link rel="stylesheet" href="styles.css"> <!-- link to CSS -->
 
@@ -24,193 +26,283 @@
 
 <body>
 
-    <section>
-        <h1 class="mainHeading">SAMBAmate</h1>
+    <nav>
+        <ul>
+            <li><a href="#section1" class="navLink">Indoor Environmental Quality</a></li>
+            <li><a href="#section2" class="navLink">Slider Activity</a></li>
+            <li><a href="#section3" class="navLink">Predicted Mean Vote</a></li>
+            <li><a href="#section4" class="navLink">Your Predicted Mean Vote</a></li>
+            <li><a href="#section5" class="navLink">Indoor VS Outdoor Temperature</a></li>
+            <li><a href="#section6" class="navLink">Quiz Activity</a></li>
+            <li><a href="#section7" class="navLink">Quiz Results</a></li>
+            <li><a href="#section8" class="navLink">Mean Radiant Temperature</a></li>
+            <li><a href="#section9" class="navLink">Air Speed</a></li>
+            <li><a href="#section10" class="navLink">Humidity</a></li>
+            <li><a href="#conclusion" class="navLink">Conclusion</a></li>
+        </ul>
+    </nav>
 
-        <p>Welcome to the SAMBAmate web application! Let's run through what IEQ is and why it's so important, and how
-            you can utilise your SAMBA device/s to improve your IEQ!</p>
+    <main>
+        <section id="section1">
+            <h1 class="mainHeading">SAMBAmate</h1>
 
-        <p>Enjoying the blast of aircon on a hot day, or staying cozy during winter - these aren’t only a matter of
-            comfort, but of productivity too. You spend an average of a third of your day at work, making thermal
-            comfort at work especially important. With the extreme weather conditions caused by climate change, this
-            topic is increasingly relevant.
-        </p>
+            <p>Welcome to the SAMBAmate web application! Let's run through what IEQ is and why it's so important, and
+                how
+                you can utilise your SAMBA device/s to improve your IEQ!</p>
 
-        <p><span class="lightpink">Indoor Environmental Quality (IEQ)</span> is concerned with how 4 aspects impact
-            health and wellbeing:</p>
-        <ol>
-            <li>Acoustics</li>
-            <li>Indoor air quality</li>
-            <li>Lighting</li>
-            <li>Thermal comfort</li>
+            <p>Enjoying the blast of aircon on a hot day, or staying cozy during winter - these aren’t only a matter of
+                comfort, but of productivity too. You spend an average of a third of your day at work, making thermal
+                comfort at work especially important. With the extreme weather conditions caused by climate change, this
+                topic is increasingly relevant.
+            </p>
 
-        </ol>
-        <p>Out of these, <span class="lightpink">thermal comfort</span>, the satisfaction occupants feel towards their
-            thermal environment, is
-            considered the most important. Thermal comfort affects morale, productivity and health. Hence, there are
-            several standards and guidelines for IEQ, including ASHRAE 55.
-        </p>
+            <p><span class="lightpink">Indoor Environmental Quality (IEQ)</span> is concerned with how 4 aspects impact
+                health and wellbeing:</p>
+            <ol>
+                <li>Acoustics</li>
+                <li>Indoor air quality</li>
+                <li>Lighting</li>
+                <li>Thermal comfort</li>
 
-        <p class="beige">As SAMBA is a valuable IEQ data collecting device, all of the graphs in this experience averages
-            SAMBA data from different offices and floors across Sydney in 2019, hence presenting an overview of the
-            typical office IEQ across the year.
-        </p>
+            </ol>
+            <p>Out of these, <span class="lightpink">thermal comfort</span>, the satisfaction occupants feel towards
+                their
+                thermal environment, is
+                considered the most important. Thermal comfort affects morale, productivity and health. Hence, there are
+                several standards and guidelines for IEQ, including ASHRAE 55.
+            </p>
 
-        <a href="#section2" class="arrow">🡣</a>
-    </section>
+            <p class="beige">As SAMBA is a valuable IEQ data collecting device, all of the graphs in this experience
+                averages
+                SAMBA data from different offices and floors across Sydney in 2019, hence presenting an overview of the
+                typical office IEQ across the year.
+            </p>
 
-    <section id="section2">
-        <p>Let’s reflect on your environment.</p>
+            <!-- arrow SVG sourced from https://heroicons.com/ -->
+            <a href="#section2">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                    stroke="currentColor" class="arrowSVG">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="m19.5 8.25-7.5 7.5-7.5-7.5" />
+                </svg>
 
-        <div class="slidercontainer">
-            <h2>How are you feeling right now?</h2>
-            <p id="sliderlabeltwo"></p>
-            <input type="range" min="-3" max="3" value="0" step="0.1" class="slider" id="myRange">
-            <p id="sliderlabel"></p>
-            <p id="demo"></p>
-            <button id="submit">Submit</button>
-        </div>
-        <a href="#section3" class="arrow">🡣</a>
-    </section>
+            </a>
 
-    <section id="section3">
-        <p>The slider you just completed is known as <span class="lightpink">Predicted Mean Vote (PMV).</span></p>
+        </section>
 
-        <p>PMV is an important measure of IEQ, as it pertains to the measure of percieved human comfort and hence can be
-            used to
-            predict productivity.
-        </p>
+        <section id="section2">
+            <p>Let’s reflect on your environment.</p>
 
-        <p>A -3 value is too cold and a +3 value is too hot. A 0 value is perfect, which occurs when your heat
-            production and heat loss are equal, and is referred to as thermal equilibrium. To comply with ASHRAE 55, PMV
-            must not exceed a ±0.5 value.
-        </p>
+            <div class="slidercontainer">
+                <h2>How are you feeling right now?</h2>
+                <p id="sliderlabeltwo"></p>
+                <input type="range" min="-3" max="3" value="0" step="0.1" class="slider" id="myRange">
+                <p id="sliderlabel"></p>
+                <p id="demo"></p>
+                <a href="#section3"><button id="submit">Submit</button></a>
+            </div>
 
-        <div id="airtemp_pmv_graph"></div>
+        </section>
 
-        <p>As you can see in the graph above, this means that <span class="pink">PMV</span> <b>correlates</b> with <span
-                class="blue">air temperature</span>.
-        </p>
-        <a href="#section4" class="arrow">🡣</a>
-    </section>
+        <section id="section3">
+            <p>The slider you just completed is known as <span class="lightpink">Predicted Mean Vote (PMV).</span></p>
 
-    <section id="section4">
-        <p>Now that you understand PMV, let’s see how <span class="hotpink">you</span> compared to the PMV that SAMBA
-            has recorded!</p>
-        <div id="custom_graph"></div>
-        <p id=custom_effect class="beige"></p>
-        <a href="#section5" class="arrow">🡣</a>
-    </section>
+            <p>PMV is an important measure of IEQ, as it pertains to the measure of perceived human comfort and hence
+                can be
+                used to
+                predict productivity.
+            </p>
 
-    <section id="section5">
-        <div id="indoor_outdoor_graph"></div>
-        <p>The <span class="navy">ideal indoor environment</span> should be 22 degrees, with an allowable deviance of
-            1.5 degrees, yet offices
-            across the different floors and zones tested by SAMBA averaged at a much higher 24.03 degrees (that's 2.03
-            degrees too high!).
-        </p>
+            <p>A -3 value is too cold and a +3 value is too hot. A 0 value is perfect, which occurs when your heat
+                production and heat loss are equal, and is referred to as thermal equilibrium. To comply with ASHRAE 55,
+                PMV
+                must not exceed a ±0.5 value.
+            </p>
 
-        <p>When this is compared to the <span class="pink tooltip">average outdoor temperature,<span
-                    class="tooltiptext">Outdoor temperature data courtesy of ACORN-SAT. Because temperature across a day
-                    is not uniform, this data is a
-                    rough average made from averaging the minimum and maximum values recorded in Sydney, and is not as
-                    accurate
-                    as a mean average taken at intervals across the day. But for our purposes, this is a good estimated
-                    average
-                    outdoor temperature.</span></span> we can see that across
-            the year there is greater
-            variation compared to <span class="blue">indoor temperature.</span> The indoor temperature only
-            <b>slightly</b>
-            correlates to these outdoor
-            temperatures.
-        </p>
+            <div id="airtemp_pmv_graph"></div>
 
-        <p class="beige">So, if indoor spaces are easier to maintain, why aren’t they maintained at the <i>right</i>
-            temperatures?
-        </p>
-        <a href="#section6" class="arrow">🡣</a>
-    </section>
+            <p>As you can see in the graph above, this means that <span class="pink">PMV</span> <b>correlates</b> with
+                <span class="blue">air temperature</span>.
+            </p>
+            <a href="#section4"> <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                    stroke-width="1.5" stroke="currentColor" class="arrowSVG">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="m19.5 8.25-7.5 7.5-7.5-7.5" />
+                </svg>
+            </a>
+        </section>
 
-    <section id="section6">
-        <p>Firstly, there are many factors that can affect the actual air temperature, as well as PMV. These factors
-            include the following: radiant air temperature, air speed and humidity.</p>
+        <section id="section4">
+            <p>Now that you understand PMV, let’s see how <span class="hotpink">you</span> compared to the PMV that
+                SAMBA
+                has recorded!</p>
+            <div id="custom_graph"></div>
+            <p id=custom_effect class="beige"></p>
+            <a href="#section5"> <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                    stroke-width="1.5" stroke="currentColor" class="arrowSVG">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="m19.5 8.25-7.5 7.5-7.5-7.5" />
+                </svg>
+            </a>
+        </section>
 
-        <p>We will dive into definitions and
-            explanations later, but for now, take a guess:</p>
+        <section id="section5">
+            <div id="indoor_outdoor_graph"></div>
+            <p>The <span class="navy">ideal indoor environment</span> should be 22 degrees, with an allowable deviance
+                of
+                1.5 degrees, yet offices
+                across the different floors and zones tested by SAMBA averaged at a much higher 24.03 degrees (that's
+                2.03
+                degrees too high!).
+            </p>
 
-        <div id="quiz">
-            <div id="question"></div>
-            <div id="options"></div>
-        </div>
-        <a href="#section7" class="arrow">🡣</a>
-    </section>
+            <p>When this is compared to the <span class="pink tooltip">average outdoor temperature,<span
+                        class="tooltiptext">Outdoor temperature data courtesy of ACORN-SAT. Because temperature across a
+                        day
+                        is not uniform, this data is a
+                        rough average made from averaging the minimum and maximum values recorded in Sydney, and is not
+                        as
+                        accurate
+                        as a mean average taken at intervals across the day. But for our purposes, this is a good
+                        estimated
+                        average
+                        outdoor temperature.</span></span> we can see that across
+                the year there is greater
+                variation compared to <span class="blue">indoor temperature.</span> The indoor temperature only
+                <b>slightly</b>
+                correlates to these outdoor
+                temperatures.
+            </p>
 
-    <section id="section7">
-        <p><span class="lightpink">Mean radiant temperature</span> refers to the heat radiating from a person or object
-            and out into their immediate
-            environment. Mean radiant temperature and air temperature are strongly correlated, and in turn, air
-            temperature is <b>strongly related</b> to PMV. This is often why radiant temperature is assumed to equal the
-            room
-            temperature.</p>
+            <p class="beige">So, if indoor spaces are easier to maintain, why aren’t they maintained at the <i>right</i>
+                temperatures?
+            </p>
+            <a href="#section6"> <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                    stroke-width="1.5" stroke="currentColor" class="arrowSVG">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="m19.5 8.25-7.5 7.5-7.5-7.5" />
+                </svg>
+            </a>
+        </section>
 
-        <div id="airtemp_tmrt_graph"></div>
+        <section id="section6">
+            <p>Firstly, there are many factors that can affect the actual air temperature, as well as PMV. These factors
+                include the following: radiant air temperature, air speed and humidity.</p>
 
-        <p>You can see in the graph above, that in the winter months, the mean radiant temperature is slightly higher
-            than the air temperature, as during this time the body temperature of occupants is increased through
-            automatic physiological behaviours.</p>
-        <a href="#section8" class="arrow">🡣</a>
-    </section>
+            <p>We will dive into definitions and
+                explanations later, but for now, take a guess:</p>
 
-    <section id="section8">
-        <p><span class="blue">Lower air speed</span> does not affect the actual air temperature, or the radiant
-            temperature, but it does affect
-            the perceived temperature. Additionally, lower air speed may cause fatigue and contributes to a higher PMV,
-            although <b>much less</b> than the other factors.
-        </p>
+            <div id="quiz">
+                <div id="question"></div>
+                <div id="options"></div>
+            </div>
+        </section>
 
-        <div id="airspeed_pmv_graph"></div>
+        <section id="section7">
+            <div id="result"></div>
+            <a href="#section8"> <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                    stroke-width="1.5" stroke="currentColor" class="arrowSVG">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="m19.5 8.25-7.5 7.5-7.5-7.5" />
+                </svg>
+            </a>
+        </section>
 
-        <p>This means that in the graph above, the average temperature of 24.03 that SAMBA recorded, is likely to feel
-            even hotter to the occupants.</p>
-        <a href="#section9" class="arrow">🡣</a>
-    </section>
+        <section id="section8">
+            <p><span class="lightpink">Mean radiant temperature</span> refers to the heat radiating from a person or
+                object
+                and out into their immediate
+                environment. Mean radiant temperature and air temperature are strongly correlated, and in turn, air
+                temperature is <b>strongly related</b> to PMV. This is often why radiant temperature is assumed to equal
+                the
+                room
+                temperature.</p>
 
-    <section id="section9">
-        <p><span class="blue">Humidity</span> is how much water vapor is in air. It is <b>most strongly correlated</b>
-            to <span class="lightpink">PMV</span> because of how it affects
-            people.</p>
+            <div id="airtemp_tmrt_graph"></div>
 
-        <p>If it’s too high, it can cause sweating, tiredness and a feeling of airlessness. And if humidity
-            reaches over 80% it can even cause heat-related illness or injury, since sweat cannot evaporate at this high
-            percentage. Humidity below 40% - as seen in most of this graph - can exasperate respiratory conditions
-            including sinusitis, and cause dry eyes.</p>
+            <p>You can see in the graph above, that in the winter months, the mean radiant temperature is slightly
+                higher
+                than the air temperature, as during this time the body temperature of occupants is increased through
+                automatic physiological behaviours.</p>
+            <a href="#section9"> <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                    stroke-width="1.5" stroke="currentColor" class="arrowSVG">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="m19.5 8.25-7.5 7.5-7.5-7.5" />
+                </svg>
+            </a>
+        </section>
 
-        <div id="humidity_pmv_graph"></div>
-        <a href="#conclusion" class="arrow">🡣</a>
-    </section>
+        <section id="section9">
+            <p><span class="blue">Lower air speed</span> does not affect the actual air temperature, or the radiant
+                temperature, but it does affect
+                the perceived temperature. Additionally, lower air speed may cause fatigue and contributes to a higher
+                PMV,
+                although <b>much less</b> than the other factors.
+            </p>
 
-    <section id="conclusion">
-        <p>This article focused on the thermal comfort aspects of IEQ - PMV, air temperature, radiant air temperature,
-            air
-            speed and humidity. However, SAMBA records other IEQ data, including data that relates to the other three
-            facets
-            of IEQ (acoustics, indoor air quality and lighting), including globe temperature, sound level, light level,
-            CO2
-            level and predicted percentage dissatisfied.</p>
+            <div id="airspeed_pmv_graph"></div>
 
-        <p>Now that we can see how and why PMV is too high or low for productivity, and we can record and review your
-            workplace IEQ data using SAMBA - <b>What can be done to improve it?</b></p>
+            <p>This means that in the graph above, the average temperature of 24.03 that SAMBA recorded, is likely to
+                feel
+                even hotter to the occupants.</p>
+            <a href="#section10"> <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                    stroke-width="1.5" stroke="currentColor" class="arrowSVG">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="m19.5 8.25-7.5 7.5-7.5-7.5" />
+                </svg>
+            </a>
+        </section>
 
-        <article id="conclusionCircles">
-            <p class="circle">Option to open/close windows to improve temperature and air speed</p>
-            <p class="circle">Air con to maintain temperatures</p>
-            <p class="circle">Ventilation systems to control humidity</p>
-            <p class="circle">Keep fit and manage stress to improve metabolic heat production</p>
-            <p class="circle">Wear clothing or provide a uniform which has removable layers, to adjust accordingly</p>
-        </article>
-        <a href="landingpage.html" class="arrow">⌂</a>
-    </section>
+        <section id="section10">
+            <p><span class="blue">Humidity</span> is how much water vapor is in air. It is <b>most strongly
+                    correlated</b>
+                to <span class="lightpink">PMV</span> because of how it affects
+                people.</p>
 
+            <p>If it’s too high, it can cause sweating, tiredness and a feeling of airlessness. And if humidity
+                reaches over 80% it can even cause heat-related illness or injury, since sweat cannot evaporate at this
+                high
+                percentage. Humidity below 40% - as seen in most of this graph - can exasperate respiratory conditions
+                including sinusitis, and cause dry eyes.</p>
+
+            <div id="humidity_pmv_graph"></div>
+            <a href="#conclusion"> <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                    stroke-width="1.5" stroke="currentColor" class="arrowSVG">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="m19.5 8.25-7.5 7.5-7.5-7.5" />
+                </svg>
+            </a>
+        </section>
+
+        <section id="conclusion">
+            <p>This article focused on the thermal comfort aspects of IEQ - PMV, air temperature, radiant air
+                temperature,
+                air
+                speed and humidity. However, SAMBA records other IEQ data, including data that relates to the other
+                three
+                facets
+                of IEQ (acoustics, indoor air quality and lighting), including globe temperature, sound level, light
+                level,
+                CO2
+                level and predicted percentage dissatisfied.</p>
+
+            <p>Now that we can see how and why PMV is too high or low for productivity, and we can record and review
+                your
+                workplace IEQ data using SAMBA - <b>What can be done to improve it?</b></p>
+
+            <article class="conclusionCircles">
+                <p class="circle">Option to open/close windows to improve temperature and air speed</p>
+                <p class="circle">Air con to maintain temperatures</p>
+                <p class="circle">Ventilation systems to control humidity</p>
+            </article>
+            <article class="conclusionCircles">
+                <p class="circle">Keep fit and manage stress to improve metabolic heat production</p>
+                <p class="circle">Wear clothing or provide a uniform which has removable layers, to adjust accordingly
+                </p>
+            </article>
+            <!-- home SVG from https://heroicons.com/ -->
+            <a href="landingpage.html"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                    stroke-width="1.5" stroke="currentColor" class="arrowSVG">
+                    <path stroke-linecap="round" stroke-linejoin="round"
+                        d="m2.25 12 8.954-8.955c.44-.439 1.152-.439 1.591 0L21.75 12M4.5 9.75v10.125c0 .621.504 1.125 1.125 1.125H9.75v-4.875c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125V21h4.125c.621 0 1.125-.504 1.125-1.125V9.75M8.25 21h8.25" />
+                </svg>
+            </a>
+        </section>
+
+    </main>
+    
     <script src="script.js"></script> <!-- link to JS -->
 
 </body>

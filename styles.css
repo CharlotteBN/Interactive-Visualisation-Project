@@ -8,17 +8,79 @@
   /* so if scrolling with the arrow, there's a smooth transition */
 }
 
+body {
+  display: grid;
+  grid-template-columns: 0.2fr 1.2fr;
+  grid-template-rows: 1fr;
+  gap: 0px 0px;
+  grid-template-areas:
+    "nav main";
+}
+
+nav {
+  grid-area: nav;
+  position: fixed;
+  /* Ensures it doesn't get lost while scrolling */
+  height: 100vh;
+  /* Fills the viewport */
+  width: 16vw;
+  /* width scales with broswer width */
+  background-color: #FAF3EE;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+
+li a {
+  text-decoration: none;
+  /* removes default underline */
+  color: #1D2E57;
+
+  font-family: "Outfit", sans-serif;
+  font-size: 2vh;
+  background-color: #FAF3EE;
+  border: none;
+  padding: 1vh;
+  text-align: center;
+
+  display: flex;
+  flex-direction: column;
+}
+
+li a:hover {
+  background-color: #FEC9C9;
+}
+
+ul {
+  list-style-type: none;
+  /* removing the bullets */
+  /* I made the navigation bar a list of links as per W3schools */
+  margin: 0;
+  padding: 0;
+  overflow: auto;
+  /* Enable scrolling if the sidenav has too much content */
+}
+
+.navLink.active {
+  /* font-weight: bold; */
+  color: #F9665E;
+  background-color: white;
+}
+
+main {
+  grid-area: main;
+}
+
 section {
   height: 100vh;
   /* height is equal to full browser size, so taking up the whole window */
   scroll-snap-align: start;
   /* the scroll will snap to the top of the page */
-  position: relative;
 
   /* Centering horizontally: */
   margin: auto;
-  width: 70%;
-  display: block;
+  width: 80%;
   /* and vertically: */
   align-content: center;
 }
@@ -28,39 +90,39 @@ div {
   text-align: center;
   margin: auto;
   width: 100%;
-  display: block;
 }
 
 h1 {
   font-family: "Caprasimo", serif;
-  font-size: 64px;
+  font-size: 7vh;
   color: #F9665E;
 }
 
 h2 {
   font-family: "Caprasimo", serif;
-  font-size: 40px;
+  font-size: 4.5vh;
   color: #F9665E;
 }
 
 p,
 li {
   font-family: "Outfit", sans-serif;
-  font-size: 1.1rem;
+  font-size: 2vh;
   color: #1D2E57;
 }
 
-.arrow {
-  font-size: 2.5rem;
-  text-align: center;
-  color: #F9665E;
-  padding: 2rem;
+.arrowSVG {
+  width: 5vh;
+  height: 5vh;
+  stroke: #F9665E;
+
+  /* centering: */
+  margin: auto;
   display: block;
-  text-decoration: none;
 }
 
-.arrow:hover {
-  color:#FEC9C9;
+.arrowSVG:hover {
+  stroke: #FEC9C9;
 }
 
 /* TOOLTIP */
@@ -74,13 +136,13 @@ li {
 
 .tooltip .tooltiptext {
   visibility: hidden;
-  width: 300px;
+  width: 30vh;
   background-color: #F7A6A4;
   color: #fff;
   text-align: center;
   border-radius: 6px;
-  padding: 15px 15px;
-  margin: 10px;
+  padding: 1vh;
+  margin: 1vh;
 
   /* Position the tooltip */
   position: absolute;
@@ -89,7 +151,8 @@ li {
   /* position above text */
   bottom: 100%;
   left: 50%;
-  margin-left: -150px; /* Use half of the width (120/2 = 60), to center the tooltip */
+  margin-left: -15vh;
+  /* Use half of the width to center the tooltip */
 }
 
 .tooltip:hover .tooltiptext {
@@ -99,7 +162,8 @@ li {
 .tooltip .tooltiptext::after {
   content: " ";
   position: absolute;
-  top: 100%; /* At the bottom of the tooltip */
+  top: 100%;
+  /* At the bottom of the tooltip */
   left: 50%;
   margin-left: -5px;
   border-width: 5px;
@@ -107,66 +171,44 @@ li {
   border-color: #F7A6A4 transparent transparent transparent;
 }
 
-/* CONCLUSION */
-
-#conclusionCircles {
-  text-align: center;
-  /* ensures the circles are centered */
-}
-
-.circle {
-  /* making circles */
-  width: 200px;
-  height: 200px;
-  padding: 10px;
-  margin: 40px;
-  border-radius: 50%;
-  /* colors and font */
-  background-color: #FAF3EE;
-  font-family: "Caprasimo", serif;
-  /* aligning the circles and text - responsive too!*/
-  text-align: center;
-  align-content: center;
-  display: inline-block;
-  vertical-align: middle;
-}
-
 /* HIGHLIGHTS */
 
 .hotpink {
   background-color: #F9665E;
-  padding: 3px;
+  padding: 0.3vh;
   border-radius: 10px;
   color: white;
 }
 
 .lightpink {
   background-color: #FEC9C9;
-  padding: 3px;
+  padding: 0.3vh;
   border-radius: 10px;
 }
 
 .pink {
   background-color: #F7A6A4;
-  padding: 3px;
+  padding: 0.3vh;
   border-radius: 10px;
 }
 
 .beige {
-  background-color: #FAF3EE;
+  /* background-color: #FAF3EE;
   padding: 10px;
-  border-radius: 10px;
+  border-radius: 10px; */
+
+  color: #F9665E;
 }
 
 .blue {
   background-color: #95B4CC;
-  padding: 3px;
+  padding: 0.3vh;
   border-radius: 10px;
 }
 
 .navy {
   background-color: #1D2E57;
-  padding: 3px;
+  padding: 0.3vh;
   border-radius: 10px;
   color: white;
 }
@@ -179,6 +221,7 @@ li {
 }
 
 /* The slider itself */
+/* Unlike the text, the slider itself is in px not vh, as this can mess with the proportions too much and cause overlapping */
 .slider {
   -webkit-appearance: none;
   appearance: none;
@@ -236,7 +279,7 @@ li {
 }
 
 .emoji {
-  font-size: 40px;
+  font-size: 5vh;
 }
 
 /* QUIZ */
@@ -245,7 +288,7 @@ button,
 .button {
   /* also styling the slider button */
   font-family: "Outfit", sans-serif;
-  font-size: 20px;
+  font-size: 2vh;
   background-color: #FAF3EE;
   color: #1D2E57;
   padding: 10px;
@@ -265,5 +308,37 @@ button.selected {
 #options {
   display: flex;
   flex-direction: column;
-  align-items: center;
+  width: 30vw;
+}
+
+/* CONCLUSION */
+
+.conclusionCircles {
+  text-align: center;
+  /* ensures the circles are centered */
+}
+
+.circle {
+  /* making circles */
+
+  /* width: 200px;
+  height: 200px;
+  padding: 10px;
+  margin: 40px; */
+
+  /* although it's a bit finnicky, ensures the home button doesn't get crowded out */
+  width: 20vh;
+  height: 20vh;
+  padding: 2vh;
+  margin: 1vh;
+
+  border-radius: 50%;
+  /* colors and font */
+  background-color: #FAF3EE;
+  font-family: "Caprasimo", serif;
+  /* aligning the circles and text - responsive too!*/
+  text-align: center;
+  align-content: center;
+  display: inline-block;
+  vertical-align: middle;
 }

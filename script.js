@@ -38,7 +38,7 @@ slider.oninput = function () { // oninput means the event triggers when the slid
 
 submitButton.onclick = function () { // executes on click
     console.log(customValue); // retrieves current slider value; testing
-    alert(customValue + " submitted! Scroll down to the next section"); // gives user feedback so they know they've submitted
+    // alert(customValue + " submitted! Scroll down to the next section"); // gives user feedback so they know they've submitted
     makePlotCustom(data); // custom graph updated
     customised_message(customValue); // custom message updated
 };
@@ -73,10 +73,14 @@ for (let i = minVal; i <= maxVal; i++) {
 
 const labelContainerTwo = document.getElementById("sliderlabeltwo");
 
-const labelPositions = [-3, 0, 3]; // Specific locations
+const labelPositions = [-3, -2, -1, 0, 1, 2, 3]; // Specific locations
 const labelDescriptions = {
     "-3": "<span class='emoji'>🥶</span><br>Too Cold",
+    "-2": "<span class='emoji'> </span><br>Cool",
+    "-1": "<span class='emoji'> </span><br>Slightly cool",
     "0": "<span class='emoji'>☺️</span><br>Just Right",
+    "1": "<span class='emoji'> </span><br>Slightly warm",
+    "2": "<span class='emoji'> </span><br>Warm",
     "3": "<span class='emoji'>🥵</span><br>Too Hot",
 };
 
@@ -177,7 +181,11 @@ function makePlot1(data) {
                 color: "#1D2E57",
                 family: "Outfit",
             },
-            automargin: true // ensures the x axis doesn't get cut off (since padding is added to the graph)
+            automargin: true, // ensures the x axis doesn't get cut off (since padding is added to the graph)
+            // retaining data points, but simplifying x axis into months (tickvals and ticktext information from Copilot:https://copilot.microsoft.com/shares/XXPXkqdqxEAvWhmdK15ug)
+            tickvals: ['1/01/2019', '1/02/2019', '1/03/2019', '1/04/2019', '1/05/2019', '1/06/2019', '1/07/2019', '1/08/2019', '1/09/2019', '1/10/2019', '1/11/2019', '1/12/2019'],
+            ticktext: ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'],
+            showgrid: true,
         },
         yaxis: {
             title: {
@@ -192,7 +200,8 @@ function makePlot1(data) {
                 family: "Outfit",
             },
             side: 'right', // moves the 1st y axis to the right side
-            range: [-1,3], // specified range to align the 0 PMV and 22 ideal air temperature
+            range: [-3, 3], // specified range to align the 0 PMV and 22 ideal air temperature; also keeping consistent with the following customised graph
+            showgrid: false, // the two y axis grids is confusing
         },
         yaxis2: {
             title: {
@@ -210,7 +219,7 @@ function makePlot1(data) {
             side: 'left', // moves the 2nd y axis to the left
             // By default, the 1st y-axis is on the left. However, by default, it also is ordered underneath the second y-axis and its trace,
             // rendering the 1st y axis invisible. Hence, I manually changed which side the y-axis is on for consistency and visibility.
-            range: [20.3,27], // specified range to align the 0 PMV and 22 ideal air temperature
+            range: [16.5, 27.5], // specified range to align the 0 PMV and 22 ideal air temperature
         },
         legend: {
             x: 1.15, // moving the legend so it won't overlap the graph
@@ -322,7 +331,11 @@ function makePlotCustom(data) {
                 color: "#1D2E57",
                 family: "Outfit",
             },
-            automargin: true // ensures the x axis doesn't get cut off (since padding is added to the graph)
+            automargin: true, // ensures the x axis doesn't get cut off (since padding is added to the graph)
+            // retaining data points, but simplifying x axis into months:
+            tickvals: ['1/01/2019', '1/02/2019', '1/03/2019', '1/04/2019', '1/05/2019', '1/06/2019', '1/07/2019', '1/08/2019', '1/09/2019', '1/10/2019', '1/11/2019', '1/12/2019'],
+            ticktext: ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'],
+            showgrid: true,
         },
         yaxis: {
             title: {
@@ -338,6 +351,7 @@ function makePlotCustom(data) {
             },
             side: 'right', // moves the 1st y axis to the right side
             range: [-3, 3], // specified range to align the 0 PMV and 22 ideal air temperature
+            showgrid: false, // the two y axis grids is confusing
         },
         yaxis2: {
             title: {
@@ -537,7 +551,11 @@ function makePlot3(data) {
                 color: "#1D2E57",
                 family: "Outfit",
             },
-            automargin: true // ensures the x axis doesn't get cut off (since padding is added to the graph)
+            automargin: true, // ensures the x axis doesn't get cut off (since padding is added to the graph)
+            // retaining data points, but simplifying x axis into months:
+            tickvals: ['1/01/2019', '1/02/2019', '1/03/2019', '1/04/2019', '1/05/2019', '1/06/2019', '1/07/2019', '1/08/2019', '1/09/2019', '1/10/2019', '1/11/2019', '1/12/2019'],
+            ticktext: ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'],
+            showgrid: true,
         },
         yaxis: {
             title: {
@@ -633,7 +651,11 @@ function makePlot4(data) {
                 color: "#1D2E57",
                 family: "Outfit",
             },
-            automargin: true // ensures the x axis doesn't get cut off (since padding is added to the graph)
+            automargin: true, // ensures the x axis doesn't get cut off (since padding is added to the graph)
+            // retaining data points, but simplifying x axis into months:
+            tickvals: ['1/01/2019', '1/02/2019', '1/03/2019', '1/04/2019', '1/05/2019', '1/06/2019', '1/07/2019', '1/08/2019', '1/09/2019', '1/10/2019', '1/11/2019', '1/12/2019'],
+            ticktext: ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'],
+            showgrid: true,
         },
         yaxis: {
             title: {
@@ -648,6 +670,8 @@ function makePlot4(data) {
                 family: "Outfit",
             },
             side: 'right', // moves the 1st y axis to the right side
+            range: [-3, 3], // specified range to align the 0 PMV and ideal air speed
+            showgrid: false, // the two y axis grids is confusing
         },
         yaxis2: {
             title: {
@@ -665,6 +689,7 @@ function makePlot4(data) {
             side: 'left', // moves the 2nd y axis to the left
             // By default, the 1st y-axis is on the left. However, by default, it also is ordered underneath the second y-axis and its trace,
             // rendering the 1st y axis invisible. Hence, I manually changed which side the y-axis is on for consistency and visibility.
+            range: [0.01, 0.29], // specified range to align the 0 PMV and ideal air speed
         },
         legend: {
             x: 1.15, // moving the legend so it won't overlap the graph
@@ -746,7 +771,11 @@ function makePlot5(data) {
                 color: "#1D2E57",
                 family: "Outfit",
             },
-            automargin: true // ensures the x axis doesn't get cut off (since padding is added to the graph)
+            automargin: true, // ensures the x axis doesn't get cut off (since padding is added to the graph)
+            // retaining data points, but simplifying x axis into months:
+            tickvals: ['1/01/2019', '1/02/2019', '1/03/2019', '1/04/2019', '1/05/2019', '1/06/2019', '1/07/2019', '1/08/2019', '1/09/2019', '1/10/2019', '1/11/2019', '1/12/2019'],
+            ticktext: ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'],
+            showgrid: true,
         },
         yaxis: {
             title: {
@@ -761,6 +790,8 @@ function makePlot5(data) {
                 family: "Outfit",
             },
             side: 'right', // moves the 1st y axis to the right side
+            range: [-1, 1.5],
+            showgrid: false, // the two y axis grids is confusing
         },
         yaxis2: {
             title: {
@@ -778,6 +809,7 @@ function makePlot5(data) {
             side: 'left', // moves the 2nd y axis to the left
             // By default, the 1st y-axis is on the left. However, by default, it also is ordered underneath the second y-axis and its trace,
             // rendering the 1st y axis invisible. Hence, I manually changed which side the y-axis is on for consistency and visibility.
+            range: [18, 98],
         },
         legend: {
             x: 1.15, // moving the legend so it won't overlap the graph
@@ -877,7 +909,41 @@ function showResult() {
         resultMessage = "<p>Good try, but you were wrong! It’s actually<br><br><span class='button'>Humidity.</span><br><br>Let’s dive into why.</p>";
     }
 
-    quiz.innerHTML = resultMessage; // update  quiz div
+    document.getElementById("result").innerHTML = resultMessage; // update result div in section 7
+    window.location.href = "#result";
 }
 
 showQuestion();
+
+// NAVIGATION BAR
+// based on code provided by Copilot: https://copilot.microsoft.com/shares/2HC2tki8dPCExexsUxXuq
+
+document.addEventListener("DOMContentLoaded", function () { // DOMContentLoaded is a feature to ensure HTML runs first in case errors occur
+    const navLinks = document.querySelectorAll(".navLink");
+    const sections = document.querySelectorAll("section");
+
+    // using IntersectionObserver API
+    function handleIntersection(entries) {
+        entries.forEach(function (entry) { // loop checks each entry
+            if (entry.isIntersecting) { // true if part of the section enters the viewport
+                navLinks.forEach(function (link) { // removes previously active links
+                    link.classList.remove("active");
+                });
+
+                var activeLink = document.querySelector('a[href="#' + entry.target.id + '"]'); // searches for link with matching section id
+                activeLink.classList.add("active"); // adding the active class to the correct link
+            }
+        });
+    }
+
+    var observer = new IntersectionObserver(handleIntersection, {
+        threshold: 0.5 // triggers when half the section is visible
+        }
+    );
+
+    sections.forEach(function (section) {
+        observer.observe(section);
+    });
+
+    sections.forEach(section => observer.observe(section));
+});
